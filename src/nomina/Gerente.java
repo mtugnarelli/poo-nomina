@@ -10,7 +10,16 @@ public class Gerente extends Empleado {
 	}
 
 	public void asignarViaticos(int monto) {
-		
+	
+		validarMonto(monto);
 		viaticos = monto;
+	}
+	
+	@Override
+	public int liquidarSueldo() {
+
+		int neto = super.liquidarSueldo();
+		
+		return (neto + viaticos);
 	}
 }

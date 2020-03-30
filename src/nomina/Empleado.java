@@ -27,7 +27,7 @@ public class Empleado {
 		return (int) (sueldo * 0.8);
 	}
 	
-	private void validarMonto(int monto) {
+	protected void validarMonto(int monto) {
 
 		if (monto < 0) {
 			throw new Error("Monto inválido, debe ser mayor a cero");
