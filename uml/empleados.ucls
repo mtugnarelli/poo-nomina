@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="nomina.Empleado" project="poo-nomina" file="/poo-nomina/src/nomina/Empleado.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="136" width="154" x="137" y="37"/>    
+    <position height="136" width="154" x="125" y="37"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="nomina.Gerente" project="poo-nomina" file="/poo-nomina/src/nomina/Gerente.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="91" width="128" x="232" y="213"/>    
+    <position height="91" width="128" x="41" y="213"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,18 +21,31 @@
   </class>  
   <class id="3" language="java" name="nomina.Operario" project="poo-nomina" file="/poo-nomina/src/nomina/Operario.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="151" x="41" y="213"/>    
+    <position height="106" width="151" x="209" y="213"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="4">    
+  <class id="4" language="java" name="nomina.Director" project="poo-nomina" file="/poo-nomina/src/nomina/Director.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="125" x="41" y="359"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="5">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="5">    
+  <generalization id="6">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="7">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
