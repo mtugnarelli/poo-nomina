@@ -57,6 +57,14 @@ public class PruebaGerente {
 		Assert.assertEquals(45_000, ivana.liquidarSueldo());
 	}
 	
+	@Test(expected = ClassCastException.class)
+	public void noEsUnDirector() {
+		
+		Empleado ivana = new Gerente("Ivana");
+		ivana.cambiarSueldoBruto(50_000);
+
+		Director directorDeCompras = (Director) ivana; // ClassCastException
+	}
 	
 	@Test
 	public void esUnEmpleadoYTambienUnGerente() {
@@ -68,6 +76,15 @@ public class PruebaGerente {
 		
 		Assert.assertEquals(45_000, ivana.liquidarSueldo());
 	}
+	
+	@Test(expected = ClassCastException.class)
+	public void noPuedoInvocarMetodosDeDirector() {
+		
+		Empleado ivana = new Gerente("Ivana");
+		ivana.cambiarSueldoBruto(50_000);
+
+		((Director) ivana).cumplioObjetivos();
+	}
 
 	@Test
 	public void esUnEmpleadoGerente() {
@@ -76,5 +93,22 @@ public class PruebaGerente {
 
 		Assert.assertTrue(ivana instanceof Empleado);
 		Assert.assertTrue(ivana instanceof Gerente);
+	}
+	
+	@Test
+	public void noEsUnDirectorNiUnOperario() {
+		
+		Empleado ivana = new Gerente("Ivana");
+
+		Assert.assertFalse(ivana instanceof Operario);
+		Assert.assertFalse(ivana instanceof Director);
+	}
+	
+	@Test
+	public void esUnObject() {
+		
+		Object objeto = new Gerente("Ivana");
+		
+		Assert.assertTrue(objeto instanceof Gerente);
 	}
 }
