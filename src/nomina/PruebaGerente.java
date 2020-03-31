@@ -23,4 +23,58 @@ public class PruebaGerente {
 		
 		Assert.assertEquals(58_000, gerente.liquidarSueldo());
 	}
+	
+	@Test
+	public void esUnEmpleado() {
+		
+		Empleado ivana = new Gerente("Ivana");
+		ivana.cambiarSueldoBruto(50_000);
+		
+		Assert.assertEquals(40_000, ivana.liquidarSueldo());
+	}
+	
+	@Test
+	public void esUnEmpleadoConViaticos() {
+		
+		Gerente gerenteDeCompras = new Gerente("Ivana"); 
+		gerenteDeCompras.asignarViaticos(5_000);
+
+		Empleado ivana = gerenteDeCompras;
+		ivana.cambiarSueldoBruto(50_000);
+		
+		Assert.assertEquals(45_000, ivana.liquidarSueldo());
+	}
+
+	@Test
+	public void esUnEmpleadoPeroNoDejaDeSerGerente() {
+		
+		Empleado ivana = new Gerente("Ivana");
+		ivana.cambiarSueldoBruto(50_000);
+
+		Gerente gerenteDeCompras = (Gerente) ivana;
+		gerenteDeCompras.asignarViaticos(5_000);
+		
+		Assert.assertEquals(45_000, ivana.liquidarSueldo());
+	}
+	
+	
+	@Test
+	public void esUnEmpleadoYTambienUnGerente() {
+		
+		Empleado ivana = new Gerente("Ivana");
+		ivana.cambiarSueldoBruto(50_000);
+
+		((Gerente) ivana).asignarViaticos(5_000);
+		
+		Assert.assertEquals(45_000, ivana.liquidarSueldo());
+	}
+
+	@Test
+	public void esUnEmpleadoGerente() {
+		
+		Empleado ivana = new Gerente("Ivana");
+
+		Assert.assertTrue(ivana instanceof Empleado);
+		Assert.assertTrue(ivana instanceof Gerente);
+	}
 }
